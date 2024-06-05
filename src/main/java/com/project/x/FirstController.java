@@ -35,4 +35,12 @@ public class FirstController {
     ){
         return "Request Accepted and message is :"+ order.toString();
     };
+
+    // path variable (parameters in springboot)
+    @GetMapping("/hello/{name}")
+    public String hello(
+           @PathVariable("name") String customerName
+    ){
+        return "path variable is" + customerName;
+    };
 }
