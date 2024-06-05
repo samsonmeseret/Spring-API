@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.*;
 public class FirstController {
 
 
-    @GetMapping("/hello")
-    public String sayHello(){
-        return "Hi THere";
-    };
+//    @GetMapping("/hello")
+//    public String sayHello(){
+//        return "Hi THere";
+//    };
 
     @PostMapping("/post")
     public String post(
@@ -37,10 +37,22 @@ public class FirstController {
     };
 
     // path variable (parameters in springboot)
+    // localhost:8080/hello/some-variables
     @GetMapping("/hello/{name}")
     public String hello(
            @PathVariable("name") String customerName
     ){
         return "path variable is" + customerName;
+    };
+
+    // Request Params (parameters in springboot)
+    // localhost:8080/hello?firstName=Samson&lastName=meseret
+    @GetMapping("/hello")
+    public String hello(
+           @RequestParam("firstName") String firstName,
+           @RequestParam("lastName") String lastName
+
+    ){
+        return "firstName : " + firstName + " " + lastName;
     };
 }
